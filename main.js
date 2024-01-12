@@ -11,14 +11,12 @@ form.addEventListener('submit', function(e){
     adicionaLinha();
     atualizaTabela();
     atualizaTotal();
-
 });
 
 function adicionaLinha(){
     const inputNome = document.getElementById('nome-contato');
     const inputTelefone = document.getElementById('fone-contato');
     const inputObs = document.getElementById('obs');
-    //const inputFav = fav;
 
     nome.push(inputNome.value);
     telefone.push(inputTelefone.value);
@@ -27,32 +25,34 @@ function adicionaLinha(){
     linha += `<td>${inputNome.value}</td>`;  
     linha += `<td>${inputTelefone.value}</td>`; 
     linha += `<td>${inputObs.value}</td>`; 
-   // linha += `<td>${inputFav.value == 1 ? imgFavoritos : imgNnn}</td>`; 
     linha += '</tr>';
 
-    linhas +=linha;
+    linhas += linha;
 
-    inputNome.value='';
-    inputTelefone.value='';
-    inputObs.value='';
+    inputNome.value = '';
+    inputTelefone.value = '';
+    inputObs.value = '';
 
-    atualizaQuantidadeContatos();
+    atualizaQuantidadeContatos(); 
 
+    setTimeout(() => {
+        inputNome.focus();
+    }, 0);
 }
 
 function atualizaTabela(){
     const corpoTabela = document.querySelector('tbody');
-    corpoTabela.innerHTML=linhas;
+    corpoTabela.innerHTML = linhas;
+    
 }
 
 function atualizaTotal(){
-    const total = atualizaQuantidadeContatos
-
-    document.getElementById('totalNumeros').innerHTML= total;
-    
+    const total = atualizaQuantidadeContatos();
+    document.getElementById('totalNumeros').innerHTML = total;
 }
 
 function atualizaQuantidadeContatos(){
     quantidadeDeContatos = nome.length;
     return quantidadeDeContatos;
 }
+
