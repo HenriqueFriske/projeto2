@@ -1,7 +1,7 @@
 const form = document.getElementById('add_coisas');
 const nome = [];
 const telefone = [];
-/////////const fav = prompt /////////////
+const obs = [];
 
 let linhas = '';
 
@@ -10,13 +10,14 @@ form.addEventListener('submit', function(e){
 
     adicionaLinha();
     atualizaTabela();
-    //atualizaQuantidadeContatos();
+    atualizaTotal();
 
 });
 
 function adicionaLinha(){
     const inputNome = document.getElementById('nome-contato');
     const inputTelefone = document.getElementById('fone-contato');
+    const inputObs = document.getElementById('obs');
     //const inputFav = fav;
 
     nome.push(inputNome.value);
@@ -25,6 +26,7 @@ function adicionaLinha(){
     let linha = '<tr>';
     linha += `<td>${inputNome.value}</td>`;  
     linha += `<td>${inputTelefone.value}</td>`; 
+    linha += `<td>${inputObs.value}</td>`; 
    // linha += `<td>${inputFav.value == 1 ? imgFavoritos : imgNnn}</td>`; 
     linha += '</tr>';
 
@@ -32,6 +34,9 @@ function adicionaLinha(){
 
     inputNome.value='';
     inputTelefone.value='';
+    inputObs.value='';
+
+    atualizaQuantidadeContatos();
 
 }
 
@@ -41,6 +46,13 @@ function atualizaTabela(){
 }
 
 function atualizaTotal(){
-    const total = linhas.length;
-    document.getElementById('totalNumeros').innerHTML= total
+    const total = atualizaQuantidadeContatos
+
+    document.getElementById('totalNumeros').innerHTML= total;
+    
+}
+
+function atualizaQuantidadeContatos(){
+    quantidadeDeContatos = nome.length;
+    return quantidadeDeContatos;
 }
