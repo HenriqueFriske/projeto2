@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt.br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./imagens/png-clipart-phone-phone-thumbnail.png" alt="imagem de telefone">
+            <h1>Agenda Telefônica</h1>
+        </header>
+    
+        <form id="add_coisas">
+            <input type="text" id="nome-contato" required placeholder="Nome do Contato">
+            <input type="tel" id="fone-contato" required placeholder="Telefone do Contato" pattern="[0-9]{10,11}" title="Informe um número de telefone válido (10 ou 11 dígitos)">
+            <button type="submit">Adicionar + </button>
+        </form>
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome do Contato</th>
+                    <th>Telefone do Contato</th>
+                    <th>Favoritos</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Total de Numeros Salvos</td>
+                    <td id="totalNumeros">---</td>
+                    <td><img src="./imagens/png-clipart-phone-phone-thumbnail.png" alt=""></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
